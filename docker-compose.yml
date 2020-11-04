@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+    microblog:
+        image: microblog
+        build:
+            context: .
+            dockerfile: ./Dockerfile
+        ports:
+            - 5000:5000
+        environment:
+            DATABASE_URL: mysql+mysqlconnector://microblog:${MYSQL_PASSWORD}@db/microblog
+        networks:
+            - microblog
+
+    db:
+        image: mysql
+        volumes:
+            - ./db_data:/var/lib/mysql
+        restart: always
+        environment:
+            MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+            MYSQL_DATABASE: microblog
+            MYSQL_USER: microblog
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+        networks:
+            - microblog
+
+networks:
+    microblog:
+        # driver: bridge

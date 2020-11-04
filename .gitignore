@@ -39,3 +39,4 @@ venv
 app.db
 db_data
 microblog.log*
+db_data

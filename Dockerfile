@@ -7,6 +7,8 @@ WORKDIR ${WORKING_DIRECTORY}
 
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
+# Install Python connector to allow for a MySQL external db
+RUN pip install mysql-connector-python
 
 # DATABASE_URL by default stores data in a SQLite app.db file in the data folder
 # These settings can be overriden at runtime
