@@ -8,7 +8,7 @@ WORKDIR ${WORKDIR}
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
-# SQLALCHEMY_DATABASE_URI's default settings store a SQLite app.db file at the root of the project
+# DATABASE_URL's default settings store a SQLite app.db file in the data folder
 # These settings can be overriden at runtime
 ENV DATABASE_URL=sqlite:///${WORKDIR}/data/app.db
 VOLUME ["${WORKDIR}/data"] 
