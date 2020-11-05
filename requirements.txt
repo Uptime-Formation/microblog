@@ -40,5 +40,7 @@ WTForms==2.1
 # requirements for running in Production settings
 gunicorn==19.7.1
 
+# requirements for using MySQL databases
+mysql-connector-python==8.0.22
 # requirements for using Postgres databases
 #psycopg2==2.7.3.1
