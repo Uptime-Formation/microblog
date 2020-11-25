@@ -11,4 +11,7 @@ ENV APP_ENVIRONMENT PROD
 
 EXPOSE 5000
 
+ENV DATABASE_URL=sqlite:////data/app.db
+VOLUME ["/data"]
+
 CMD ["./boot.sh"]
