@@ -140,3 +140,8 @@ def translate_text():
     return jsonify({'text': translate(request.form['text'],
                                       request.form['source_language'],
                                       request.form['dest_language'])})
+
+
+@bp.route('/about')
+def about_page():
+    return render_template('about.html', title=_('About me'))
